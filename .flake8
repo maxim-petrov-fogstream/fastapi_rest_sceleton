@@ -1,0 +1,26 @@
+[flake8]
+exclude = */docs/*,*/.tox/*,*/.venv/*, migrations, __init__.py, manage.py, */settings/*, backends.py
+max-line-length = 99
+accept-encodings = utf-8
+
+ignore = \
+	C101, # Coding magic comment not found
+	D104, \             # Докстринги в публичных пакетах (__init__.py)
+	D105, \             # Докстринги в магических методах
+	D106, \             # Докстринги в публичных вложенных классах (например, Meta)
+	D107, \             # Докстриги в __init__
+	DAR201, \           # Missing parameter(s) in Docstring: - request
+	DAR101, \           # Missing "Returns" in Docstring: - return
+	A002, \             # python builtin
+
+
+per-file-ignores =
+    tests*.py,manage.py,wsgi.py:
+        # D101 Missing docstring in public class
+        D101,
+        # D102 Missing docstring in public method
+        D102,
+        # WPS213 Found too many expressions
+        WPS213,
+        # WPS230 Found too many public instance attributes
+        WPS230
